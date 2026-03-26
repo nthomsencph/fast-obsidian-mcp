@@ -15,10 +15,10 @@ One tool: `obsidian_run(command)`. It executes `obsidian <command>` as a subproc
 Requires Python 3.11+, the Obsidian desktop app running, and the `obsidian` CLI in your PATH.
 
 ```bash
-uv sync
+uvx install fast-obsidian-mcp
 ```
 
-Install as a tool:
+Or from a local clone:
 
 ```bash
 uv tool install .
