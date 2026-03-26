@@ -1,4 +1,4 @@
-# obsidian-mcp
+# fast-obsidian-mcp
 
 A minimal MCP server that gives Claude Desktop and Cowork access to your local Obsidian vault via the official [Obsidian CLI](https://obsidian.md/help/cli).
 
@@ -15,7 +15,7 @@ One tool: `obsidian_run(command)`. It executes `obsidian <command>` as a subproc
 Requires Python 3.11+, the Obsidian desktop app running, and the `obsidian` CLI in your PATH.
 
 ```bash
-uvx install fast-obsidian-mcp
+uv tool install fast-obsidian-mcp
 ```
 
 Or from a local clone:
