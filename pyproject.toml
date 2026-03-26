@@ -1,0 +1,13 @@
+[project]
+name = "obsidian-mcp"
+version = "0.1.0"
+description = "Thin MCP server wrapping the Obsidian CLI"
+requires-python = ">=3.11"
+dependencies = ["fastmcp>=3.0"]
+
+[project.scripts]
+obsidian-mcp = "obsidian_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
