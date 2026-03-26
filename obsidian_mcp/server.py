@@ -8,7 +8,9 @@ mcp = FastMCP("obsidian-mcp")
 
 @mcp.tool
 async def obsidian_run(command: str) -> str:
-    """Run an Obsidian CLI command. Pass the full command string after 'obsidian', e.g. 'read path="Notes/Todo.md"' or 'daily:append content="hello"'."""
+    """Run an Obsidian CLI command. Pass the full command string after 'obsidian',
+    e.g. 'read path="Notes/Todo.md"' or 'daily:append content="hello"'."""
+
     args = shlex.split(command)
     proc = await asyncio.create_subprocess_exec(
         "obsidian",
