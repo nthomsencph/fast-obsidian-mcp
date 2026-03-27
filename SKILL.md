@@ -1,6 +1,8 @@
 # Obsidian CLI — MCP Tool Reference
 
-You have one tool: `obsidian_run(command)`. Pass the CLI command string (everything after `obsidian`).
+You have two tools:
+- `obsidian_run(command)` — run any Obsidian CLI command. Pass the full command string after `obsidian`.
+- `obsidian_edit(path, old, new)` — find and replace text in a note. Replaces the first occurrence of `old` with `new`. Atomic — no race conditions.
 
 ## Syntax rules
 
@@ -11,22 +13,7 @@ You have one tool: `obsidian_run(command)`. Pass the CLI command string (everyth
 
 ## Editing content
 
-Use `eval` with `app.vault.process()` for atomic in-place edits. This is safer than read → create overwrite because it avoids race conditions.
-
-**Find and replace:**
-```
-eval code="(async()=>{const f=app.vault.getAbstractFileByPath('Folder/Note.md'); await app.vault.process(f, c=>c.replace('old text','new text')); return 'done'})()"
-```
-
-**Regex replace:**
-```
-eval code="(async()=>{const f=app.vault.getAbstractFileByPath('Folder/Note.md'); await app.vault.process(f, c=>c.replace(/pattern/g,'replacement')); return 'done'})()"
-```
-
-**Full rewrite** (when edits are too complex for replace):
-```
-create path="Folder/Note.md" content="full new content" overwrite
-```
+Use `obsidian_edit(path, old, new)` for surgical find-and-replace. For full rewrites, use `create ... overwrite` via `obsidian_run`.
 
 ## Context warning
 
